@@ -3,7 +3,7 @@ const sendButton = document.getElementById("sendButton");
 const msgTextBox = document.getElementById("msgTextBox");
 const dataResultArea = document.getElementById("mainResults");
 
-const endpoint = "http://esp8266.local/serial";
+const endpoint = "https://esp8266.local";
 
 // Make a GET api request
 async function sendMessage(msg) {
