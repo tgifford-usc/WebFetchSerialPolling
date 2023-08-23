@@ -1,0 +1,27 @@
+.main-container {
+    max-width: 72em;
+    font-family: monospace;
+    margin: 0 auto;
+}
+
+.data-results {
+    background-color: aliceblue;
+    overflow: scroll;
+}
+
+.control-panel {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin: 1em;
+    width: 100%;
+}
+
+.url-input {
+    margin: 1em;
+    width: 100%;
+}
+
+.control-button {
+    margin: 1em;
+}
