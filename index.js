@@ -3,8 +3,8 @@ const sendButton = document.getElementById("sendButton");
 const msgTextBox = document.getElementById("msgTextBox");
 const dataResultArea = document.getElementById("mainResults");
 
-//const endpoint = "https://esp8266.local";
-const endpoint = "https://192.168.231.211"
+const endpoint = "https://esp8266.local";
+// const endpoint = "https://192.168.231.211"
 
 // Make a GET api request
 async function sendMessage(msg) {
