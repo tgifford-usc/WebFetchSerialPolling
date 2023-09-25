@@ -25,3 +25,12 @@
 .control-button {
     margin: 1em;
 }
+
+.toggle-button {
+    margin: 1em;
+}
+
+.toggled-on {
+    border-radius: 10%;
+    background-color: rgb(134, 218, 7);
+}
