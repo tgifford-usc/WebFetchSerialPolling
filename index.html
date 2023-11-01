@@ -10,9 +10,17 @@
         
         <!-- Input controls like textboxes and buttons -->
         <div class="control-panel">
-            <button id="sendButton" class="control-button">SEND</button>
-            <input type="text" class="msg-input" id="msgTextBox">
-            <button id="pollButton" class="toggle-button toggled-off">POLL</button>
+            <div class="mainControls">
+                <button id="sendButton" class="control-button">SEND</button>
+                <input type="text" class="msg-input" id="msgTextBox">
+                <button id="pollButton" class="toggle-button toggled-off">POLL</button>
+                <button id="androidButton" class="toggle-button toggled-off">Android</button>
+            </div>
+            <div id="ipAddressPanel" style="display: none;">
+                <div id="ipAddressLabel">For android phones, type in the IP Address of your connected device here</div>
+                <input type="text" id="ipAddressTextBox" class="ip-address-input">
+            </div>
+
         </div>
         
         <!-- Raw printout of the result-->

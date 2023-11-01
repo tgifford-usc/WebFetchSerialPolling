@@ -1,16 +1,24 @@
 // make variables for the html elements
 const sendButton = document.getElementById("sendButton");
 const pollButton = document.getElementById("pollButton");
+const androidButton = document.getElementById("androidButton");
 const msgTextBox = document.getElementById("msgTextBox");
 const dataResultArea = document.getElementById("mainResults");
+const ipAddressTextBox = document.getElementById("ipAddressTextBox");
+const ipAddressPanel = document.getElementById("ipAddressPanel");
 
-const endpoint = "https://esp8266.local";
+let ipAddress = "esp8266.local";
+// const endpoint = "https://esp8266.local";
 // const endpoint = "https://192.168.231.211"
 // const endpoint = "https://192.168.20.12";
+ipAddressTextBox.value = ipAddress;
 
 // Polling for data on the microcontroller
 let polling = false;
 let pollInterval = 5000;
+
+// toggle android or not android
+let android = false;
 
 // Make a GET api request
 async function sendMessage(msg) {
@@ -18,11 +26,11 @@ async function sendMessage(msg) {
     dataResultArea.innerHTML = "";
     
     // Fetch a response from the REST API
-    const response = await fetch(`${endpoint}?msg=${msg}`);
+    const response = await fetch(`https://${ipAddress}?msg=${msg}`);
     
     // bail out if the response status was anything other than success
     if (response.status != 200) { 
-        console.log(`${endpoint}/poll returned status ${response.status}`);
+        console.log(`https://${ipAddress}/poll returned status ${response.status}`);
         return;
     } 
 
@@ -45,11 +53,11 @@ async function sendMessage(msg) {
 // See if the microcontroller has some data it wants to send
 async function queryForData() {
     // Fetch a response from the REST API
-    const response = await fetch(`${endpoint}/poll`);
+    const response = await fetch(`https://${ipAddress}/poll`);
     
     // bail out if the response status was anything other than success
     if (response.status != 200) { 
-        console.log(`${endpoint}/poll returned status ${response.status}`);
+        console.log(`https://${ipAddress}/poll returned status ${response.status}`);
         return;
     } 
 
@@ -108,4 +116,25 @@ pollButton.addEventListener('click', (event) => {
         pollButton.classList.remove('toggled-off');
         pollButton.classList.add('toggled-on');
     }
+});
+
+
+// toggle android button, and show IP address textbox if it is Android
+androidButton.addEventListener('click', (event) => {
+    if (android) {
+        android = false;
+        androidButton.classList.remove('toggled-on');
+        androidButton.classList.add('toggled-off');
+        ipAddressPanel.setAttribute('style','display: none;');
+    } else {
+        android = true;
+        androidButton.classList.remove('toggled-off');
+        androidButton.classList.add('toggled-on');
+        ipAddressPanel.setAttribute('style','display: flex;');
+    }
+});
+
+
+ipAddressTextBox.addEventListener('change', (event) => {
+    ipAddress = ipAddressTextBox.value;    
 });
