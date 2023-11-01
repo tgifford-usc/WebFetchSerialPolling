@@ -11,7 +11,7 @@
 
 .control-panel {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: flex-start;
     margin: 1em;
     width: 100%;
@@ -20,6 +20,15 @@
 .url-input {
     margin: 1em;
     width: 100%;
+}
+
+.ip-address-input {
+    margin: 1em;
+    width: 16em;
+}
+
+#ipAddressPanel {
+    flex-direction: column;
 }
 
 .control-button {
